@@ -33,3 +33,7 @@ h1 {
 header p {
   color: white;
 }
+
+.productImage {
+  max-width: 300px;
+}

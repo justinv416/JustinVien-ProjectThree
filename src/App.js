@@ -9,12 +9,12 @@ import {
 
 function App() {
   return (
-    <router>
+    <Router>
       <div>
         <Header />
         <Products />
       </div>
-    </router>
+    </Router>
   );
 }
 
