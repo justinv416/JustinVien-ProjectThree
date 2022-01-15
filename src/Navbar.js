@@ -6,6 +6,9 @@ const Navbar = () => {
         <nav className='navbar'>
             <div className="wrapper ">
                 <h2>Shopii</h2>
+                <ul>
+                    <li>Products</li>
+                </ul>
                 <FontAwesomeIcon icon={faShoppingCart} />
             </div>
         </nav>

@@ -1,20 +1,21 @@
 import './App.css';
 import Header from './Header';
 import Products from './Products';
-import { 
-  BrowserRouter as Router, 
-  Route
-} from 'react-router-dom';
-
+import Mens from './Mens';
+import Womens from './Womens';
+import Jewelry from './Jewelry'
+import Tech from './Tech';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Header />
-        <Products />
-      </div>
-    </Router>
+    <div>
+      <Header />
+      {/* <Products /> */}
+      <Mens />
+      <Womens />
+      <Jewelry />
+      <Tech />
+    </div>
   );
 }
 
