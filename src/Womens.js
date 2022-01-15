@@ -16,17 +16,21 @@ const Womens = () => {
     }, [])
 
     return (
-        <div className="wrapper">
-            <h2>Shop Womens:</h2>
-            {womensProducts.map((product) => {
-                return (
-                    <div key={product.id}>
-                        <img className="productImage" src={product.image} alt={product.title} />
-                        <h3>{product.title}</h3>
-                        <button>See Product</button>
-                    </div>
-                )
-            })}
+        <div>
+            <div className="wrapper">
+                <h2>Shop Womens:</h2>
+                <div className="productsContainer">
+                    {womensProducts.map((product) => {
+                        return (
+                            <div key={product.id} className="product">
+                                <img className="productImage" src={product.image} alt={product.title} />
+                                <h3>{product.title}</h3>
+                                <button>See Product</button>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
         </div>
     )
 }
