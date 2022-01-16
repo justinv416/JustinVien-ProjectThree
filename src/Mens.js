@@ -1,8 +1,8 @@
-import axios from "axios"
 import { useEffect, useState } from "react";
 
 const Mens = (props) => {
     console.log(props.data)
+    const [item, setItem] = useState()
     return (
         <div>
             <div className="wrapper">
@@ -14,7 +14,7 @@ const Mens = (props) => {
                                 <img className="productImage" src={product.image} alt={product.title} />
                                 <h3>{product.title}</h3>
                                 <button onClick={() => {
-                                    console.log(product.title)
+                                    setItem(product.title)
                                 }}>See Product</button>
                             </div>
                         )
