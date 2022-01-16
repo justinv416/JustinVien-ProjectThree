@@ -6,10 +6,13 @@ const Navbar = () => {
     return (
         <nav className='navbar'>
             <div className="wrapper ">
-                <h2>Shopii</h2>
-                <Link to="/">GO HOme</Link>
-                <Link to="/products">Products</Link>
-                <FontAwesomeIcon icon={faShoppingCart} />
+                <Link to="/">
+                    <h2>Shopii</h2>
+                </Link>
+                <div className='navbarLinks'>
+                    <Link to="/products">Products</Link>
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                </div>
             </div>
         </nav>
     )

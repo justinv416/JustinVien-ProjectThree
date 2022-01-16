@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -18,7 +20,6 @@ const Products = () => {
 
     return (
         <div>
-            <Navbar />
             <div className="wrapper">
                 <h2>Products</h2>
                 <div className="productsContainer">
@@ -27,9 +28,10 @@ const Products = () => {
                             <div key={product.id} className="product">
                                 <img className="productImage" src={product.image} alt={product.title} />
                                 <h3>{product.title}</h3>
-                                <button onClick={() => {
-                                    console.log(product.title)
-                                }}>See Product</button>
+                                <h4>${product.price}</h4>
+                                <Link to={`/product/${product.id}`} id={`${product.id}`}>
+                                    link
+                                </Link>
                             </div>
                         )
                     })}
