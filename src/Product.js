@@ -3,13 +3,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const Product = () => {
-    const { id } = useParams()
-    console.log(id)
-    const [item, setItem] = useState([])
+    const { itemId } = useParams()
+    const [item, setItem] = useState([]);
+    const handleAddToCart = () => {
+        console.log(item)
+    }
 
     useEffect(() => {
         axios({
-            url:`https://fakestoreapi.com/products/${id}`,
+            url:`https://fakestoreapi.com/products/${itemId}`,
             method: 'GET',
             dataResponse: 'json'
         }).then((response) => {
@@ -23,10 +25,10 @@ const Product = () => {
             <div className="wrapper itemWrapper">
                 <img className="item" src={item.image} alt={item.title} />
                 <div className="itemInfo">
-                    <h3>{item.title}</h3>
+                    <h3 className='itemTitle'>{item.title}</h3>
                     <h4>${item.price}</h4>
                     <p>{item.description}</p>
-                    <button>Add to cart</button>
+                    <button onClick={handleAddToCart}>Add to cart</button>
                 </div>
             </div>
         </div>

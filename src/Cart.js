@@ -1,5 +1,3 @@
-
-
 const ShoppingCart = (props) => {
     return (
         <div className="wrapper">
