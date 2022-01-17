@@ -18,7 +18,7 @@ const Product = () => {
             console.log(response);
             setItem(response.data)
         });
-    }, []);
+    }, [itemId]);
 
     return (
         <div className='itemContainer'>
