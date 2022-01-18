@@ -98,3 +98,18 @@ header p {
 .itemTitle {
   font-size: 2rem;
 }
+
+.cartItemContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cartItemImage {
+  max-width: 500px;
+  max-height: 200px;
+}
+
+.cartItemDescription {
+  display: flex;
+  flex-direction: column;
+}

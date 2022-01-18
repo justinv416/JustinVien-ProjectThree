@@ -11,15 +11,17 @@ function App() {
 
   const [cartData, setCartData] = useState([])
 
-  //The test links works and is successfully called in the product component,
-  // now i need to set the item data as a object in product js and set the state here.
-  //Then pass that data to the shopping cart. 
-  //need to push itemData to state
+  //Item data is successfully exported from product component, now i need to push the item obj into a new array and set it to state. 
+  //  - Then, i need export that state array into cart component so that i can manipulate it there. 
 
   const getItemData = (itemData) => {
+    const copy = cartData;
+    console.log(copy)
+    // copy.push(itemData)
+    // console.log(copy.length)
     setCartData(itemData)
-    console.log(cartData)
   }
+
 
   return (
     <div>
@@ -27,8 +29,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/product/:itemId" element={<Product importData={getItemData}/>} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:productid" element={<Product exportItemData={getItemData} />} />
+        <Route path="/cart" element={<Cart cartData={cartData}/>} />
       </Routes>
     </div>
   );
