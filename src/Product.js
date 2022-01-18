@@ -2,12 +2,19 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const Product = () => {
+const Product = (props) => {
     const { itemId } = useParams()
     const [item, setItem] = useState([]);
-    const handleAddToCart = () => {
-        console.log(item)
+
+    const importData = () => {
+        const individualItem = {
+            title: item.title,
+            price: item.price,
+            quantity: 1
+        }
+        props.importData(individualItem)
     }
+
 
     useEffect(() => {
         axios({
@@ -28,7 +35,7 @@ const Product = () => {
                     <h3 className='itemTitle'>{item.title}</h3>
                     <h4>${item.price}</h4>
                     <p>{item.description}</p>
-                    <button onClick={handleAddToCart}>Add to cart</button>
+                    <button onClick={importData}>Add to cart</button>
                 </div>
             </div>
         </div>
