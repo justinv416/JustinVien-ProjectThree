@@ -19,7 +19,8 @@ const ShoppingCart = (props) => {
                     </div>
                 </div>
             )
-            })} 
+            })}
+            <h3>Grand Total:</h3> 
         </div>
     )
 }

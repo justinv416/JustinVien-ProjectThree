@@ -10,16 +10,19 @@ import { useState } from 'react';
 function App() {
 
   const [cartData, setCartData] = useState([])
+  const [total, setTotal] = useState(0)
 
-  //Item data is successfully exported from product component, now i need to push the item obj into a new array and set it to state. 
-  //  - Then, i need export that state array into cart component so that i can manipulate it there. 
+  
 
  const getItemData = (itemData) => {
-    // const copy = cartData;
     cartData.push(itemData)
 
     setCartData(cartData)
-    console.log(cartData)
+    //Initial calculation for grand total, wont work since all items are diff. prices
+    //May .reduce method?
+    for(let i = 0; i < cartData.length; i++) {
+      console.log(cartData[i].price * cartData.length)
+    }
   }
 
 
@@ -27,7 +30,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home className="homeRoute"/>} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:productid" element={<Product exportItemData={getItemData} />} />
         <Route path="/cart" element={<Cart cartData={cartData}/>} />
