@@ -14,12 +14,12 @@ function App() {
   //Item data is successfully exported from product component, now i need to push the item obj into a new array and set it to state. 
   //  - Then, i need export that state array into cart component so that i can manipulate it there. 
 
-  const getItemData = (itemData) => {
-    const copy = cartData;
-    console.log(copy)
-    // copy.push(itemData)
-    // console.log(copy.length)
-    setCartData(itemData)
+ const getItemData = (itemData) => {
+    // const copy = cartData;
+    cartData.push(itemData)
+
+    setCartData(cartData)
+    console.log(cartData)
   }
 
 

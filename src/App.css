@@ -113,3 +113,26 @@ header p {
   display: flex;
   flex-direction: column;
 }
+
+.link, .addToCartButton {
+  background-color: none;
+  border: 2px solid black;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.link:hover, .link:focus,
+.addToCartButton:hover, .addToCartButton:focus {
+  background-color: black;
+  color: white;
+}
+
+.link:visited {
+  color: none
+}
+
+Link {
+  color: black;
+  background-color: blue;
+}

@@ -27,8 +27,8 @@ const Products = () => {
                                 <img className="productImage" src={product.image} alt={product.title} />
                                 <h3>{product.title}</h3>
                                 <h4>${product.price}</h4>
-                                <Link to={`/product/${product.id}`} productid={`${product.id}`}>
-                                    <button>View Product</button>
+                                <Link className="link" to={`/product/${product.id}`} productid={`${product.id}`}>
+                                    View Product
                                 </Link>
                             </div>
                         )
