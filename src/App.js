@@ -15,16 +15,18 @@ function App() {
   
 
  const getItemData = (itemData) => {
+    //Adds new item into the cart
     cartData.push(itemData)
-
+    //Sets updated cart to state
     setCartData(cartData)
-    //Initial calculation for grand total, wont work since all items are diff. prices
-    //May .reduce method?
-    for(let i = 0; i < cartData.length; i++) {
-      console.log(cartData[i].price * cartData.length)
-    }
   }
 
+  const removeFromCart = (product) => {
+   const oldCart = [...cartData]
+   const newCart = oldCart.filter(filteredProduct => filteredProduct !== product)
+   setCartData(newCart)
+   console.log(newCart)
+  }
 
   return (
     <div>
@@ -33,7 +35,7 @@ function App() {
         <Route path="/" element={<Home className="homeRoute"/>} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:productid" element={<Product exportItemData={getItemData} />} />
-        <Route path="/cart" element={<Cart cartData={cartData}/>} />
+        <Route path="/cart" element={<Cart cartData={cartData} test={removeFromCart}/>} />
       </Routes>
     </div>
   );

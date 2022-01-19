@@ -10,6 +10,7 @@ const Product = (props) => {
     // up to app.js and set it as state.
     const exportItemData = () => {
         const individualItem = {
+            id: item.id,
             title: item.title,
             image: item.image,
             price: item.price,
