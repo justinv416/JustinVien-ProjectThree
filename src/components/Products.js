@@ -5,15 +5,17 @@ import { Link } from "react-router-dom";
 const Products = () => {
     const [products, setProducts] = useState([]);
     
-    useEffect(() => {
+     useEffect(() => {
         axios({
             url: 'https://fakestoreapi.com/products',
             method: 'GET',
             dataResponse: 'json'
         }).then((response) => {
             setProducts(response.data)
+        }).catch((err) => {
+            alert("Something went wrong, please try again another time. I'll try my best to fix it.");
         })
-    }, [])
+    }, []);
 
     return (
         <div>
@@ -38,34 +40,4 @@ const Products = () => {
     )
 }
 
-export default Products
-
-//  useEffect(() => {
-//         axios({
-//             url: 'https://fakestoreapi.com/products',
-//             method: 'GET',
-//             dataResponse: 'json'
-//         }).then((response) => {
-//             if(response.ok) {
-//                 setProducts(response.data)
-//             } else {
-//                 throw new Error("Unfortunately, this call was not successful")
-//             }
-//         }).catch((err) => {
-//             if(err.message === "Not Found"){
-//                 alert("We couldn't find the resource you were looking for. Please Try again another time.")
-//             } else {
-//                 alert("Something else went wrong, I'll try my best to fix it.")
-//             }
-//         })
-//     }, [])
-
-// useEffect(() => {
-//         axios({
-//             url: 'https://fakestoreapi.com/products',
-//             method: 'GET',
-//             dataResponse: 'json'
-//         }).then((response) => {
-//             setProducts(response.data)
-//         })
-//     }, [])
+export default Products;
