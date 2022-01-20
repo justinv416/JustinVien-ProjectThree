@@ -35,10 +35,6 @@ function App() {
   }
 
 
-  const handleTotal = () => {
-
-  }
-
 
 
   return (
