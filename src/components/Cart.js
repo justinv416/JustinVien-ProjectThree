@@ -1,10 +1,12 @@
 const ShoppingCart = (props) => {
     const { cartData } = props;
-    console.log(cartData.length)
 
     return (
-        <div className="wrapper">
-            { cartData.length === 0 ? <h2>Cart is empty</h2> : <h2>Shopping Cart:</h2>}
+        <div className="wrapper cartWrapper">
+            { cartData.length === 0 ? <h2 className="cartHeading">Cart is empty</h2> : <h2 className="cartHeading">Shopping Cart:</h2>}
+            <div className="grandTotalContainer">
+                <h3>Grand Total:</h3> 
+            </div>
             {cartData.map((product) => {
             return (
                 <div className="cartItemContainer">                    
@@ -19,7 +21,6 @@ const ShoppingCart = (props) => {
                 </div>
             )
             })}
-            <h3>Grand Total:</h3> 
         </div>
     )
 }

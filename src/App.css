@@ -7,9 +7,18 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
 /* Set root font size */
 html {
   font-size: 125%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /* Wrapper that 'contains' content */
@@ -24,10 +33,7 @@ html {
   width: 100%;
   background-color: white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.navbarLinks {
-  width: 10%;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,19 +50,11 @@ nav .wrapper {
   position: relative;
 }
 
-.fa-shopping-cart:after {
-  content: "";
-  background: brown;
-  width: 10px;  
-  height: 10px;
-  position: absolute;
-  top: 0;
-}
 
 /* Header component */
 header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Assets/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg);
-  height: calc(100vh - 67px);
+  height: calc(100vh - 124.4px);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -64,26 +62,45 @@ header {
   text-align: center;
 }
 
+header p {
+  padding: 2rem 0;
+}
+
 h1 {
   color: white;
   margin: 0;
   font-size: 4rem;
+  font-family: 'Abril Fatface', cursive;
+  text-shadow: 7px 0px black;
+}
+
+h2 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
 }
 
 header p {
   color: white;
+  font-family: 'Raleway', sans-serif;
+  line-height: 2rem;
 }
 
 .headerLink {
   background-color: white;
-  padding: 10px;
+  color: black;
+  padding: 15px;
   border: 2px solid black;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* Products component */
-.productImage {
+.productsImage {
   width: 100%;
   height: 100%;
 }
@@ -93,19 +110,33 @@ header p {
   align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
+  /* background-color: blanchedalmond; */
 }
 
 .product {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   max-width: 300px;
   max-height: 600px;
+  /* background-color: cadetblue; */
   padding: 50px 0;
 }
 
-.item {
+.productsHeading {
+  padding: 2rem 0;
+}
+
+.productsTitle {
+  padding: 1rem 0 0 0;
+}
+
+.productsPrice {
+  padding: 1rem 0;
+}
+
+.itemImage {
   max-width: 500px;
   max-height: 500px;
 }
@@ -122,6 +153,14 @@ header p {
   align-items: center;
 }
 
+.itemDescription {
+  padding: 1rem 0 2rem 0;
+}
+
+.itemPrice {
+  padding: 1rem 0;
+}
+
 .itemInfo {
   max-width: 700px;
 }
@@ -130,9 +169,16 @@ header p {
   font-size: 2rem;
 }
 
+.cartHeading {
+  padding: 2rem 0;
+}
+
 .cartItemContainer {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  width: 50%;
+  padding: 2rem 0;
+  background-color: cadetblue;
 }
 
 .cartItemImage {
@@ -143,17 +189,19 @@ header p {
 .cartItemDescription {
   display: flex;
   flex-direction: column;
+  background-color: coral;
 }
 
-.link, .addToCartButton {
-  background-color: none;
+.productLink, .addToCartButton {
+  background-color: white;
+  color: black;
   border: 2px solid black;
   padding: 10px;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
 
-.link:hover, .link:focus,
+.productLink:hover, .link:focus,
 .addToCartButton:hover, .addToCartButton:focus,
 .headerLink:hover, .headerLink:focus {
   background-color: black;
@@ -162,4 +210,104 @@ header p {
 
 .link:visited {
   color: none
+}
+
+.cartWrapper {
+  position: relative;
+}
+
+.grandTotalContainer {
+  position: sticky;
+  right: 0;
+  top: 0;
+  background-color: coral;
+  width: 50%;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.productsLink {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 100px;
+  position: relative;
+}
+
+.shoppingCartLink {
+  color: black;
+}
+
+.logoLink {
+  font-family: 'Abril Fatface', cursive;
+  color: black;
+  font-size: 1.8rem;
+  text-decoration: none;
+  position: relative;
+}
+
+.logoLink:hover::after, 
+.productsLink:hover::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: red;
+  bottom: 0;
+  left: 0;
+  animation: grow 0.5s forwards;
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  } to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .itemContainer {
+    height: auto;
+    text-align: center;
+  }
+
+  .itemWrapper {
+    flex-direction: column;
+  }
+
+  .itemImage {
+    height: 400px;
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .productsLink {
+    margin-right: 20px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .logoLink {
+    font-size: 1.5rem;
+  }
+
+  .productsLink {
+    font-size: 0.8rem;
+  }
+
+  .productsHeading {
+    text-align: center;
+  }
+
+  .productsContainer {
+    justify-content: center;
+  }
 }

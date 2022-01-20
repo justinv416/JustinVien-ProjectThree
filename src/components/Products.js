@@ -19,15 +19,15 @@ const Products = () => {
     return (
         <div>
             <div className="wrapper">
-                <h2>Products</h2>
+                <h2 className="productsHeading">Products:</h2>
                 <div className="productsContainer">
                     {products.map((product) => {
                         return (
                             <div key={product.id} className="product">
-                                <img className="productImage" src={product.image} alt={product.title} />
-                                <h3>{product.title}</h3>
-                                <h4>${product.price}</h4>
-                                <Link className="link" to={`/product/${product.id}`} productid={`${product.id}`}>
+                                <img className="productsImage" src={product.image} alt={product.title} />
+                                <h3 className="productsTitle">{product.title}</h3>
+                                <h4 className="productsPrice">${product.price}</h4>
+                                <Link className="productLink" to={`/product/${product.id}`} productid={`${product.id}`}>
                                     View Product
                                 </Link>
                             </div>
