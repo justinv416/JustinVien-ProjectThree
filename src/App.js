@@ -12,35 +12,43 @@ function App() {
 
   const [cartData, setCartData] = useState([])
   const [cartLength, setCartLength] = useState(0)
-  const [total, setTotal] = useState(0)
+  // const [total, setTotal] = useState(0)
 
- const getItemData = (itemData) => {
+ const handleAddToCart = (itemData) => {
     //Adds new item into the cart
     cartData.push(itemData)
     //Sets updated cart to state
     setCartData(cartData)
+    //Sets cart length for badge notification
     setCartLength(cartData.length)
   }
 
-  const removeFromCart = (product) => {
+  const handleRemoveFromCart = (product) => {
     //Makes a copy of the cart with the spread operator
    const oldCart = [...cartData];
    //Deletes cart items with the Filter method
    const newCart = oldCart.filter(filteredProduct => filteredProduct !== product)
     //Sets new cart to state with filtered(removed) items.
    setCartData(newCart)
+   //Sets cart length for badge notification
     setCartLength(newCart.length)
   }
 
 
+  const handleTotal = () => {
+
+  }
+
+
+
   return (
     <div>
-      <Navbar itemsNum={cartData.length}/>
+      <Navbar itemsNum={cartLength}/>
       <Routes>
         <Route path="/" element={<Home className="homeRoute"/>} />
         <Route path="/products" element={<Products />} />
-        <Route path="/product/:productid" element={<Product exportItemData={getItemData} />} />
-        <Route path="/cart" element={<Cart cartData={cartData} test={removeFromCart}/>} />
+        <Route path="/product/:productid" element={<Product exportItemData={handleAddToCart} />} />
+        <Route path="/cart" element={<Cart cartData={cartData} removeFromCart={handleRemoveFromCart}/>} />
       </Routes>
       <Footer />
     </div>
@@ -50,4 +58,4 @@ function App() {
 export default App;
 
 
-//TODO: pass cartData or newCart.length to badge in navbar
+//Todo: total calculation functionality

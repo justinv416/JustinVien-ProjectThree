@@ -7,18 +7,24 @@ const Navbar = (props) => {
     return (
         <nav className='navbar'>
             <div className="wrapper ">
-                <Link to="/" className='logoLink'>
-                    Shoppable
-                </Link>
-                <div className='navbarLinks'>
-                    <Link to="/products" className='productsLink'>Products</Link>
-                    <Link to="/cart" className='shoppingCartLink'>
-                        {/* Side note: color="error" means red */}
-                        <Badge badgeContent={props.itemsNum} color="error" >
-                            <FontAwesomeIcon icon={faShoppingCart} />
-                        </Badge>
+                <h2>
+                    <Link to="/" >
+                        Shoppable
                     </Link>
-                </div>
+                </h2>
+                <ul className='navbarLinks'>
+                    <li>
+                        <Link to="/products">Products</Link>
+                    </li>
+                    <li>
+                        <Link to="/cart" className='shoppingCartLink'>
+                            {/* Side note: color="error" means red */}
+                            <Badge badgeContent={props.itemsNum} color="error" >
+                                <FontAwesomeIcon icon={faShoppingCart} />
+                            </Badge>
+                        </Link>
+                    </li>
+                </ul>
             </div>
         </nav>
     )

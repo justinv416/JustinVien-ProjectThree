@@ -21,51 +21,6 @@ html {
   padding: 0;
 }
 
-/* Wrapper that 'contains' content */
-.wrapper {
-  width: 90%;
-  max-width: 2160px;
-  margin: 0 auto;
-}
-
-/* Navbar component */
-.navbar {
-  width: 100%;
-  background-color: white;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.fa-shopping-cart {
-  font-size: 1.5rem;
-  position: relative;
-}
-
-
-/* Header component */
-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Assets/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg);
-  height: calc(100vh - 124.4px);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-header p {
-  padding: 2rem 0;
-}
-
 h1 {
   color: white;
   margin: 0;
@@ -87,6 +42,91 @@ header p {
   color: white;
   font-family: 'Raleway', sans-serif;
   line-height: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Wrapper that 'contains' content */
+.wrapper {
+  width: 90%;
+  max-width: 2160px;
+  margin: 0 auto;
+}
+
+/* Navbar component */
+.navbar {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 a {
+  font-family: 'Abril Fatface', cursive;
+  color: black;
+  font-size: 1.8rem;
+  text-decoration: none;
+  position: relative;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-shopping-cart {
+  font-size: 1.5rem;
+}
+
+.navbarLinks {
+  display: flex;
+  align-items: center;
+}
+
+.navbarLinks li a:first-of-type {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 100px;
+  position: relative;
+}
+
+.navbar h2 a:hover::after, 
+.navbarLinks li:first-of-type:hover::after,
+footer a:hover::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: red;
+  bottom: 0;
+  left: 0;
+  animation: grow 0.5s forwards;
+}
+
+/* Header component */
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Assets/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg);
+  height: calc(100vh - 124.4px);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+header p {
+  padding: 2rem 0;
 }
 
 .headerLink {
@@ -216,6 +256,12 @@ header p {
   position: relative;
 }
 
+.cartHeadings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .grandTotalContainer {
   position: sticky;
   right: 0;
@@ -230,36 +276,13 @@ footer {
   font-family: 'Raleway', sans-serif;
 }
 
-.productsLink {
+footer a {
   color: black;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
-  margin-right: 100px;
   position: relative;
 }
 
 .shoppingCartLink {
   color: black;
-}
-
-.logoLink {
-  font-family: 'Abril Fatface', cursive;
-  color: black;
-  font-size: 1.8rem;
-  text-decoration: none;
-  position: relative;
-}
-
-.logoLink:hover::after, 
-.productsLink:hover::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  background-color: red;
-  bottom: 0;
-  left: 0;
-  animation: grow 0.5s forwards;
 }
 
 @keyframes grow {
