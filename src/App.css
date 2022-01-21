@@ -261,7 +261,8 @@ header p {
   max-width: 50%;
 }
 
-.productLink:hover, .productLink:focus,               
+.productLink:hover, .productLink:focus,           
+.removeButton:hover, .removeButton:focus,    
 .addToCartButton:hover, .addToCartButton:focus,
 .headerLink:hover, .headerLink:focus {
   background-color: black;
