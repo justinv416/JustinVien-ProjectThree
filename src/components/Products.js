@@ -14,7 +14,7 @@ const Products = () => {
             setProducts(response.data)
         }).catch((err) => {
             alert("Something went wrong, please try again another time. I'll try my best to fix it.");
-        })
+        });
     }, []);
 
     return (
@@ -32,12 +32,12 @@ const Products = () => {
                                     View Product
                                 </Link>
                             </div>
-                        )
+                        );
                     })}
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Products;

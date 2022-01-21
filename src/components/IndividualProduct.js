@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const Product = (props) => {
-    const { productid } = useParams()
+    const { productid } = useParams();
     const [item, setItem] = useState([]);
 
     //Function that stores item data as an object that when clicked will pass it back 
@@ -15,9 +15,10 @@ const Product = (props) => {
             image: item.image,
             price: item.price,
             quantity: 1
-        }
-        props.exportItemData(individualItem)
-    }
+        };
+
+        props.exportItemData(individualItem);
+    };
 
     useEffect(() => {
         axios({
@@ -45,7 +46,7 @@ const Product = (props) => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Product
+export default Product;

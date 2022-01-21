@@ -10,29 +10,28 @@ import { useState } from 'react';
 
 function App() {
 
-  const [cartData, setCartData] = useState([])
-  const [cartLength, setCartLength] = useState(0)
-  // const [total, setTotal] = useState(0)
+  const [cartData, setCartData] = useState([]);
+  const [cartLength, setCartLength] = useState(0);
 
  const handleAddToCart = (itemData) => {
     //Adds new item into the cart
-    cartData.push(itemData)
+    cartData.push(itemData);
     //Sets updated cart to state
-    setCartData(cartData)
+    setCartData(cartData);
     //Sets cart length for badge notification
-    setCartLength(cartData.length)
-  }
+    setCartLength(cartData.length);
+  };
 
-  const handleRemoveFromCart = (product) => {
+  const handleRemoveFromCart = (item) => {
     //Makes a copy of the cart with the spread operator
    const oldCart = [...cartData];
    //Deletes cart items with the Filter method
-   const newCart = oldCart.filter(filteredProduct => filteredProduct !== product)
+   const newCart = oldCart.filter(filteredItem => filteredItem !== item);
     //Sets new cart to state with filtered(removed) items.
-   setCartData(newCart)
+   setCartData(newCart);
    //Sets cart length for badge notification
-    setCartLength(newCart.length)
-  }
+    setCartLength(newCart.length);
+  };
 
   return (
     <div>

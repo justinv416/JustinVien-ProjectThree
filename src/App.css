@@ -67,9 +67,6 @@ ul {
   background-color: white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   padding: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .navbar h2 a {
@@ -82,11 +79,11 @@ ul {
 
 nav .wrapper {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
 .fa-shopping-cart {
+  color: black;
   font-size: 1.5rem;
   transition: font-size 0.3s ease-in-out;
 }
@@ -101,17 +98,13 @@ nav .wrapper {
   align-items: center;
 }
 
-.navbarLinks li a:first-of-type {
+.navbarLinks li:first-of-type a {
+  position: relative;
   color: black;
-  text-decoration: none;
   text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
-  position: relative;
+  margin: 3px 50px 0 0;
 }
-
-.navbarLinks li:first-of-type {
-  margin-right: 50px;
-} 
 
 .navbar h2 a:hover::after, 
 .navbar h2 a:focus::after, 
@@ -149,19 +142,19 @@ header p {
   padding: 15px;
   border: 2px solid black;
   transition: all 0.3s ease-in-out;
-  text-decoration: none;
   font-family: 'Raleway', sans-serif;
 }
 
 /* Products component */
 .productLink, .addToCartButton, .removeButton {
+  font-family: 'Raleway', sans-serif;
   background-color: white;
   color: black;
   border: 2px solid black;
-  padding: 10px;
+  padding: 10px 0;
   width: 50%;
   transition: all 0.3s ease-in-out;
-  text-decoration: none;
+  cursor: pointer;
 }
 
 .productsImage {
@@ -222,6 +215,8 @@ header p {
 
 .itemPrice {
   padding: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: normal;
 }
 
 .itemInfo {
@@ -266,8 +261,7 @@ header p {
   max-width: 50%;
 }
 
-.productLink:hover, .productLink:focus,
-.removeButton:focus,                
+.productLink:hover, .productLink:focus,               
 .addToCartButton:hover, .addToCartButton:focus,
 .headerLink:hover, .headerLink:focus {
   background-color: black;
@@ -317,6 +311,10 @@ footer a {
 }
 
 @media (max-width: 1000px) {
+  .navbar h2 a {
+    font-size: 1.4rem;
+  }
+
   .itemContainer {
     height: auto;
     text-align: center;
@@ -364,6 +362,10 @@ footer a {
     font-size: 3rem;
   }
 
+  header p {
+    line-height: 1.5rem;
+  }
+
   .logoLink {
     font-size: 1.5rem;
   }
@@ -388,4 +390,15 @@ footer a {
   .removeButton {
     width: 100%;
   }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .navbarLinks li:first-of-type {
+    margin: 3px 10px 0 0;
+    font-size: 0.9rem;
+  } 
 }
