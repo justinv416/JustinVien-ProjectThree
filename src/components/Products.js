@@ -18,7 +18,7 @@ const Products = () => {
     }, []);
 
     return (
-        <div>
+        <section id="products">
             <div className="wrapper">
                 <h2 className="productsHeading">Products:</h2>
                 <div className="productsContainer">
@@ -36,7 +36,7 @@ const Products = () => {
                     })}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

@@ -34,9 +34,6 @@ function App() {
     setCartLength(newCart.length)
   }
 
-
-
-
   return (
     <div>
       <Navbar itemsNum={cartLength}/>

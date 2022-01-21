@@ -86,9 +86,14 @@ nav .wrapper {
   justify-content: space-between;
 }
 
-.fa-shopping-cart, 
-.fa-bars {
+.fa-shopping-cart {
   font-size: 1.5rem;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.fa-shopping-cart:hover, 
+.fa-shopping-cart:focus  {
+  font-size: 1.6rem;
 }
 
 .navbarLinks {
@@ -106,11 +111,14 @@ nav .wrapper {
 
 .navbarLinks li:first-of-type {
   margin-right: 50px;
-}
+} 
 
 .navbar h2 a:hover::after, 
+.navbar h2 a:focus::after, 
 .navbarLinks li:first-of-type a:hover::after,
-footer a:hover::after {
+.navbarLinks li:first-of-type a:focus::after,
+footer a:hover::after, 
+footer a:focus::after {
   content: "";
   position: absolute;
   height: 2px;
@@ -203,7 +211,7 @@ header p {
 }
 
 .itemContainer {
-  height: calc(100vh - 67px);
+  height: calc(100vh - 130px);
   display: flex;
   align-items: center;
 }
@@ -254,10 +262,12 @@ header p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: coral; */
+  width: 100%;
+  max-width: 50%;
 }
 
-.productLink:hover, .removeButton:focus,                
+.productLink:hover, .productLink:focus,
+.removeButton:focus,                
 .addToCartButton:hover, .addToCartButton:focus,
 .headerLink:hover, .headerLink:focus {
   background-color: black;
@@ -339,6 +349,10 @@ footer a {
   .cartItemImage {
     padding: 1rem 0;
   }
+
+  .cartItemDescription {
+    max-width: 80%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -368,6 +382,10 @@ footer a {
 
   .addToCartButton, 
   .productLink {
+    width: 100%;
+  }
+
+  .removeButton {
     width: 100%;
   }
 }

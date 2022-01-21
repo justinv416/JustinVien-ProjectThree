@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
 
 const Navbar = (props) => {
@@ -20,8 +20,8 @@ const Navbar = (props) => {
                         <li>
                             <Link to="/cart" className='shoppingCartLink'>
                                 {/* Side note: color="error" means red */}
-                                <Badge badgeContent={props.itemsNum} color="error" >
-                                    <FontAwesomeIcon icon={faShoppingCart} />
+                                <Badge badgeContent={props.itemsNum} color="error" aria-label={`Number of items in cart ${props.itemsNum}`}>
+                                    <FontAwesomeIcon icon={faShoppingCart} aria-label="Click to go to shopping cart" />
                                 </Badge>
                             </Link>
                         </li>
