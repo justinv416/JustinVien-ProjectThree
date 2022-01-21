@@ -3,12 +3,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const Product = (props) => {
+    //Destructures product id from Products.js to be used in api call.
     const { productid } = useParams();
+    //Sets individual item as state.
     const [item, setItem] = useState([]);
 
     //Function that stores item data as an object that when clicked will pass it back 
     // up to app.js and set it as state.
-    const exportItemData = () => {
+    const handleItemData = () => {
         const individualItem = {
             id: item.id,
             title: item.title,
@@ -17,7 +19,7 @@ const Product = (props) => {
             quantity: 1
         };
 
-        props.exportItemData(individualItem);
+        props.handleItemData(individualItem);
     };
 
     useEffect(() => {
@@ -41,7 +43,8 @@ const Product = (props) => {
                         <h3 className='itemTitle'>{item.title}</h3>
                         <h4 className='itemPrice'>Price: ${item.price}</h4>
                         <p className='itemDescription'>{item.description}</p>
-                        <button className="addToCartButton" onClick={exportItemData}>Add to cart</button>
+                        {/* On click, the item is pushed to a stateful array that is held in App.js */}
+                        <button className="addToCartButton" onClick={handleItemData}>Add to cart</button>
                     </div>
                 </div>
             </div>

@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Products = () => {
+    //Sets items as a statful array.
     const [products, setProducts] = useState([]);
     
+    //Api call
      useEffect(() => {
         axios({
             url: 'https://fakestoreapi.com/products',
@@ -28,6 +30,8 @@ const Products = () => {
                                 <img className="productsImage" src={product.image} alt={product.title} />
                                 <h3 className="productsTitle">{product.title}</h3>
                                 <h4 className="productsPrice">Price: ${product.price}</h4>
+                                {/* Links to individual product component, 
+                                product id is passed as a parameter to both url and to another api call there*/}
                                 <Link className="productLink" to={`/product/${product.id}`} productid={`${product.id}`}>
                                     View Product
                                 </Link>

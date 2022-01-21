@@ -8,9 +8,7 @@ const Navbar = (props) => {
         <nav className="navbar">
             <div className="wrapper">
                 <h2>
-                    <Link to="/" >
-                        Shoppable.
-                    </Link>
+                    <Link to="/">Shoppable.</Link>
                 </h2>
                 <ul className='navbarLinks'>
                     <li>
@@ -27,7 +25,7 @@ const Navbar = (props) => {
                 </ul>
             </div>
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;
