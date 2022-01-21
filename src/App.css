@@ -192,11 +192,6 @@ header p {
 }
 
 /* Individual product component */
-.itemImage {
-  max-width: 500px;
-  max-height: 500px;
-}
-
 .itemWrapper {
   display: flex;
   align-items: center;
@@ -207,6 +202,11 @@ header p {
   height: calc(100vh - 130px);
   display: flex;
   align-items: center;
+}
+
+.itemImage {
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .itemDescription {
@@ -325,6 +325,10 @@ footer a {
     flex-direction: column;
   }
 
+  .itemDescription {
+    padding: 0 0 1rem 0;
+  }
+
   .itemImage {
     height: 400px;
     padding: 2rem 0;
@@ -398,8 +402,16 @@ footer a {
     font-size: 2rem;
   }
 
-  .navbarLinks li:first-of-type {
+  .navbarLinks li:first-of-type a {
     margin: 3px 10px 0 0;
     font-size: 0.9rem;
   } 
+
+  .itemTitle {
+    font-size: 1.5rem;
+  }
+
+  .itemPrice {
+    font-size: 1.2rem
+  }
 }

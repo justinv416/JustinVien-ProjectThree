@@ -39,7 +39,7 @@ const Product = (props) => {
                     <img className="itemImage" src={item.image} alt={item.title} />
                     <div className="itemInfo">
                         <h3 className='itemTitle'>{item.title}</h3>
-                        <h4 className='itemPrice'>${item.price}</h4>
+                        <h4 className='itemPrice'>Price: ${item.price}</h4>
                         <p className='itemDescription'>{item.description}</p>
                         <button className="addToCartButton" onClick={exportItemData}>Add to cart</button>
                     </div>
