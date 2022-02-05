@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Cart from './components/Cart';
 import { Routes, Route } from "react-router-dom";
 import { useState } from 'react';
+import FireBaseTest from './FireBaseTest';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/product/:productid" element={<Product handleItemData={handleAddToCart} />} />
         <Route path="/cart" element={<Cart cartData={cartData} removeFromCart={handleRemoveFromCart}/>} />
+        <Route path="/test" element={<FireBaseTest />} /> 
       </Routes>
       <Footer />
     </div>
