@@ -144,21 +144,40 @@ header p {
 }
 
 /* Products component */
-.productLink, .addToCartButton, 
-.removeButton {
+ .addToCartButton, 
+.removeButton, .goBackLink {
+  font-family: var(--contentFont);
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+  outline: 2px solid var(--secondaryColor);
+  border: none;
+  padding: 10px 0;
+  width: 50%;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+.productLink{
+  width: 100%;
   font-family: var(--contentFont);
   background-color: var(--primaryColor);
   color: var(--secondaryColor);
   border: 2px solid var(--secondaryColor);
   padding: 10px 0;
-  width: 50%;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+}
+
+.itemButtonContainer {
+  display: flex;
 }
 
 .productsImage {
   width: 100%;
   height: 100%;
+  max-height: 300px;
+  max-width: 250px
 }
 
 .productsContainer {
@@ -263,7 +282,8 @@ header p {
 .productLink:hover, .productLink:focus,           
 .removeButton:hover, .removeButton:focus,    
 .addToCartButton:hover, .addToCartButton:focus,
-.headerLink:hover, .headerLink:focus {
+.headerLink:hover, .headerLink:focus,
+.goBackLink:hover, .goBackLink:focus {
   background-color: var(--secondaryColor);
   color: var(--primaryColor);
 }

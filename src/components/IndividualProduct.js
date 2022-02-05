@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -43,8 +43,13 @@ const Product = (props) => {
                         <h3 className='itemTitle'>{item.title}</h3>
                         <h4 className='itemPrice'>Price: ${item.price}</h4>
                         <p className='itemDescription'>{item.description}</p>
-                        {/* On click, the item is pushed to a stateful array that is held in App.js */}
-                        <button className="addToCartButton" onClick={handleItemData}>Add to cart</button>
+                        <div className="itemButtonContainer">
+                            {/* On click, the item is pushed to a stateful array that is held in App.js */}
+                            <button className="addToCartButton" onClick={handleItemData}>Add to cart</button>
+                            <Link  className="goBackLink" to="/products">
+                                Go back
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
