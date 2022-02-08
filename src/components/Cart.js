@@ -1,4 +1,5 @@
 const ShoppingCart = ({cartData, removeFromCart}) => {
+    console.log(cartData)
     return (
         <div className="wrapper cartWrapper">
             {cartData.length === 0 ? 
