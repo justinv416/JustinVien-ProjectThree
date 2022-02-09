@@ -23,49 +23,41 @@ function App() {
     const database = getDatabase(firebase);
     //variable that makes reference to our database
     const dbRef = ref(database, 'cart/');
+    //Event listener for changes to database. 
     onValue(dbRef, (response) => {
+      //Response from database
       const data = response.val();
+      //Creating an empty array to item data
       const newState = []
+      //Lopping through the data object
       for (let key in data) {
-        newState.push(data[key])
+        //Pushes each set of data into the newState
+        newState.push({name: key, data: data[key]})
       }
+      //Sets cartData to newState
       setCartData(newState)
+      setCartLength(newState.length);
       console.log(newState)
+      console.log(cartData)
     })
-    // setCartData(data)
   }, [])
 
   const handleAddToCart = (itemToAdd) => {
     /*Adds new item into the cart. 
-    Here itemData represents the individual item that is passed in in the exportItemData 
+    itemToAdd represents the individual item that is passed in from the exportItemData 
     function in IndividualItem.js*/
     const database = getDatabase(firebase);
     const dbRef = ref(database, 'cart/');
-    //This managed to push the cartData to the database
-    // cartData.push(itemToAdd);
+    //Pushes the cart item to the database.
     push(dbRef, itemToAdd);
-    //Sets updated cart to state
-    //Sets cart length for badge notification
-    setCartLength(cartData.length);
-    console.log(itemToAdd)
-    console.log(cartData)
   };
 
   //Removes item from cart, itemToRemove represents the individual item in the cart.
   const handleRemoveFromCart = (itemToRemove) => {
     const database = getDatabase(firebase);
-    const dbRef = ref(database);
-    //Makes a copy of the cart with the spread operator
-   const oldCart = [...cartData];
-   //Deletes cart items with the Filter method
-   const newCart = oldCart.filter(filteredItem => filteredItem !== itemToRemove);
-    //Sets new cart to state with filtered(removed) items.
-   setCartData(newCart);
-   //Sets cart length for badge notification
-    setCartLength(newCart.length);
-    console.log(itemToRemove)
-    //This removes everything from the database but currently it removes everything
-    remove(dbRef, `/${itemToRemove}`)
+    //Reference to the item to remove
+    const dbRef = ref(database, `cart/${itemToRemove}`);
+    remove(dbRef)
   };
 
   return (
