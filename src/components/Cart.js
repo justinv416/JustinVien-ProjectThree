@@ -1,5 +1,4 @@
 const ShoppingCart = ({cartData, removeFromCart}) => {
-    console.log(cartData)
     return (
         <div className="wrapper cartWrapper">
             {cartData.length === 0 ? 
@@ -7,7 +6,6 @@ const ShoppingCart = ({cartData, removeFromCart}) => {
                 : 
                 <h2 className="cartHeading">Shopping Cart:</h2>}
             {cartData.map((item) => {
-                console.log(item.name)
                 return (
                     <div className="cartItemContainer" key={item.name}>                    
                         <div className="cartItemImageContainer">

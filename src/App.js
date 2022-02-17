@@ -10,13 +10,14 @@ import Cart from './components/Cart';
 //Hooks
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { getDatabase, ref, onValue, push, remove, set } from 'firebase/database';
+import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import firebase from './Firebase'
 
 function App() {
 
   const [cartData, setCartData] = useState([]);
   const [cartLength, setCartLength] = useState(0);
+
 
   useEffect(() => {
     //variable that holds our database details
@@ -37,12 +38,11 @@ function App() {
       //Sets cartData to newState
       setCartData(newState)
       setCartLength(newState.length);
-      console.log(newState)
-      console.log(cartData)
     })
   }, [])
 
   const handleAddToCart = (itemToAdd) => {
+
     /*Adds new item into the cart. 
     itemToAdd represents the individual item that is passed in from the exportItemData 
     function in IndividualItem.js*/
