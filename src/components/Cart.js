@@ -1,4 +1,5 @@
-const ShoppingCart = ({cartData, removeFromCart}) => {
+const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
+    console.log(gTotal)
     return (
         <div className="wrapper cartWrapper">
             {cartData.length === 0 ? 
@@ -20,6 +21,7 @@ const ShoppingCart = ({cartData, removeFromCart}) => {
                     </div>
                 );
             })}
+            <h2>{`total: $${gTotal.toFixed(2)}`}</h2>
         </div>
     );
 };
