@@ -14,10 +14,8 @@ import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import firebase from './Firebase'
 
 function App() {
-
   const [cartData, setCartData] = useState([]);
   const [cartLength, setCartLength] = useState(0);
-
 
   useEffect(() => {
     //variable that holds our database details
@@ -38,6 +36,17 @@ function App() {
       //Sets cartData to newState
       setCartData(newState)
       setCartLength(newState.length);
+      //Sets total to be an empty array;
+      const total = []
+      //loop through newstate items 
+      for(let i = 0; i < newState.length; i++) {
+        console.log(newState[i].data)
+        //pushes prices to total array
+        total.push(newState[i].data.price)
+        console.log(total)
+      }
+      const newTotal = total.reduce((previousPrice, currentPrice) => previousPrice + currentPrice)
+      console.log(newTotal)
     })
   }, [])
 
@@ -48,8 +57,10 @@ function App() {
     function in IndividualItem.js*/
     const database = getDatabase(firebase);
     const dbRef = ref(database, 'cart/');
+    // const totalRef = ref(database, 'total')
     //Pushes the cart item to the database.
     push(dbRef, itemToAdd);
+    // push(totalRef, itemToAdd.price)
   };
 
   //Removes item from cart, itemToRemove represents the individual item in the cart.
