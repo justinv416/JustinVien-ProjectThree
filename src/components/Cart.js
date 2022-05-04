@@ -7,7 +7,6 @@ const ShoppingCart = ({cartData, removeFromCart}) => {
                 : 
                 <h2 className="cartHeading">Shopping Cart:</h2>}
             {cartData.map((item) => {
-                console.log(item.name)
                 return (
                     <div className="cartItemContainer" key={item.name}>                    
                         <div className="cartItemImageContainer">
