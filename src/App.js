@@ -42,7 +42,7 @@ function App() {
       }
 
       if(total.length > 0) {
-        const grandTotal = total.reduce((prevAmount, currentAmount) => prevAmount + currentAmount)
+        const grandTotal = total.reduce((prevAmount, currentAmount) => prevAmount + currentAmount).toFixed(2)
         setTotalTest(grandTotal)
       } else {
         setTotalTest(0)

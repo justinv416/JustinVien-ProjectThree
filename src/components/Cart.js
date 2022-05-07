@@ -21,7 +21,7 @@ const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
                 );
             })}
             <div className="cartTotal">
-                <h3>{`Grand Total: $${gTotal.toFixed(2)}`}</h3>
+                <h3>{`Grand Total: $${gTotal}`}</h3>
             </div>
         </div>
     );
