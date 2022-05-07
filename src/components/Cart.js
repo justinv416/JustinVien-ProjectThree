@@ -1,5 +1,4 @@
-const ShoppingCart = ({cartData, removeFromCart}) => {
-
+const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
     return (
         <div className="wrapper cartWrapper">
             {cartData.length === 0 ? 
@@ -8,7 +7,7 @@ const ShoppingCart = ({cartData, removeFromCart}) => {
                 <h2 className="cartHeading">Shopping Cart:</h2>}
             {cartData.map((item) => {
                 return (
-                    <div className="cartItemContainer" key={item.name}>                    
+                    <div className="cartItemContainer" key={item.data.name}>                    
                         <div className="cartItemImageContainer">
                             <img className="cartItemImage" src={item.data.image} alt={item.title} />
                         </div>
@@ -21,6 +20,9 @@ const ShoppingCart = ({cartData, removeFromCart}) => {
                     </div>
                 );
             })}
+            <div className="cartTotal">
+                <h3>{`Grand Total: $${gTotal.toFixed(2)}`}</h3>
+            </div>
         </div>
     );
 };

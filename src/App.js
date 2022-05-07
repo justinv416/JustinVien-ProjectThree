@@ -16,6 +16,7 @@ import firebase from './Firebase'
 function App() {
   const [cartData, setCartData] = useState([]);
   const [cartLength, setCartLength] = useState(0);
+  const [totalTest, setTotalTest] = useState([])
 
   useEffect(() => {
     const database = getDatabase(firebase);
@@ -25,6 +26,7 @@ function App() {
       const data = response.val();
       //Creating an empty array to item data
       const newState = []
+      const total = []
       //Lopping through the data object
       for (let key in data) {
         //Pushes each set of data into the newState
@@ -33,8 +35,19 @@ function App() {
       //Sets cartData to newState
       setCartData(newState)
       setCartLength(newState.length);
-    })
 
+      //Total calculation
+      for (let prop in data) {
+        total.push(data[prop].price)
+      }
+
+      if(total.length > 0) {
+        const grandTotal = total.reduce((prevAmount, currentAmount) => prevAmount + currentAmount)
+        setTotalTest(grandTotal)
+      } else {
+        setTotalTest(0)
+      }
+    })
   }, [])
 
   const handleAddToCart = (itemToAdd) => {
@@ -58,7 +71,7 @@ function App() {
         <Route path="/" element={<Home className="homeRoute"/>} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:productid" element={<Product handleItemData={handleAddToCart} />} />
-        <Route path="/cart" element={<Cart cartData={cartData} removeFromCart={handleRemoveFromCart}  />} />
+        <Route path="/cart" element={<Cart cartData={cartData} removeFromCart={handleRemoveFromCart} gTotal={totalTest} />} />
       </Routes>
       <Footer />
     </div>
