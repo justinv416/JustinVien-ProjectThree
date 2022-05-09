@@ -60,6 +60,11 @@ ul {
 }
 
 /* Navbar component */
+.bars, .close {
+  font-size: 2rem;
+  display: none;
+}
+
 .navbar {
   width: 100%;
   background-color: var(--primaryColor);
@@ -94,6 +99,17 @@ nav .wrapper {
 .navbarLinks {
   display: flex;
   align-items: center;
+}
+
+.navbarLink {
+  text-transform: uppercase;
+}
+
+.navbarLinksMobile {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  margin: 30px 0;
 }
 
 .navbarLinks li:first-of-type a {
@@ -370,6 +386,18 @@ footer a {
 }
 
 @media (max-width: 700px) {
+  .navbarLinks {
+    display: none;
+  }
+
+  .navbarLinksMobile {
+    display: flex;
+  }
+
+  .bars, .close {
+    display: block;
+  }
+
   .productsLink {
     margin-right: 20px;
   }
