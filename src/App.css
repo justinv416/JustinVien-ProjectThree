@@ -59,6 +59,10 @@ ul {
   margin: 0 auto;
 }
 
+.fixNav {
+  position: fixed;
+}
+
 /* Navbar component */
 .bars, .close {
   font-size: 2rem;
@@ -103,6 +107,10 @@ nav .wrapper {
 
 .navbarLink {
   text-transform: uppercase;
+}
+
+.navbarLink:visited {
+  color: black;
 }
 
 .navbarLinksMobile {

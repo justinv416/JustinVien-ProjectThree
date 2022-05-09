@@ -1,15 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
 
 const Navbar = (props) => {
-    const [isClicked, setIsClicked] = useState(false)
-    
+    const [isClicked, setIsClicked] = useState(false);
+    const [fixNav, setFixedNav] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 10) {
+                setFixedNav(true)
+            } else {
+                setFixedNav(false)
+            }
+        })
+
+        return () => {
+            window.removeEventListener('scroll')
+        }
+    }, []);
+
     return (
         <>
-            <nav className="navbar">
+            <nav className={`navbar ${fixNav && 'fixNav'}`}>
                 <div className="wrapper">
                     <h2>
                         <Link to="/">Shoppable.</Link>
