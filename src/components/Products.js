@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Products = () => {
-    //Sets items as a statful array.
     const [products, setProducts] = useState([]);
-    
+
     //Api call
      useEffect(() => {
         axios({
