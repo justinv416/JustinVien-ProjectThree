@@ -11,7 +11,7 @@ const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
 
     return (
         <>
-            {proceedToCheckout && <Checkout proceedToCheckout={setProceedToCheckout}/>}
+            {proceedToCheckout && <Checkout proceedToCheckout={setProceedToCheckout} gTotal={gTotal}/>}
             <div className="wrapper cartWrapper">
                 {cartData.length === 0 ? 
                     <h2 className="cartHeading">Cart is empty</h2> 
