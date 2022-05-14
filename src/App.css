@@ -183,6 +183,19 @@ header p {
   text-align: center;
 }
 
+.checkoutButton {
+  font-family: var(--contentFont);
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
+    outline: 2px solid var(--secondaryColor);
+    border: none;
+    padding: 10px 0;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
 .productLink{
   width: 100%;
   font-family: var(--contentFont);
@@ -271,6 +284,11 @@ header p {
 }
 
 /* Cart component */
+.cartContainer {
+  display: flex;
+}
+
+
 .cartHeading {
   padding: 2rem 0;
 }
@@ -325,6 +343,37 @@ header p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.cartTotal {
+  width: 50%;
+}
+
+.checkoutModal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  bottom: 10px;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer {
+  background-color: white;
+  padding: 100px 50px;
+  width: 50%;
 }
 
 /* Footer Section */
