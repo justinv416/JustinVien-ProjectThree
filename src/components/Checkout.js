@@ -16,7 +16,7 @@ const Checkout = (props) => {
     <div className='checkoutModal'>
         <div className="formContainer">
           <h2 className="checkoutHeading">Checkout:</h2>
-            <form action="" className="checkoutForm" onSubmit={handleSubmit}>
+            <form className="checkoutForm" onSubmit={handleSubmit}>
                 <label htmlFor="name">Your Name:</label>
                 <input className="checkoutInput" type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your name here" required />
                 <label htmlFor="email">Your Email:</label>
@@ -27,11 +27,14 @@ const Checkout = (props) => {
                 <input className="checkoutInput" type="text" placeholder="Your city here" required />
                 <label htmlFor="postalCode">Your Postal Code:</label>
                 <input className="checkoutInput" type="text" placeholder="Your postal code here" required />
-                <button className="checkoutSubmit" type="submit" onClick={handleSubmit}>Submit Order</button>
+                <h3 className='grandTotalModal'>{`Grand Total ${props.gTotal}`}</h3>
+                <button className="checkoutSubmit" type="submit">Submit Order</button>
             </form>
             <FontAwesomeIcon icon={faTimes} className="closeModal" onClick={() => props.proceedToCheckout(false)}/>
-            <h3>{`Grand Total ${props.gTotal}`}</h3>
-            {isSubmit && <p className="checkoutConfirmation">{`Order is placed thanks, ${name}!`}</p>}
+            {isSubmit && 
+            <div className="checkoutConfirmation">
+              <p>{`Order is placed thanks, ${name}!`}</p>
+            </div>}
         </div>
     </div>
   )

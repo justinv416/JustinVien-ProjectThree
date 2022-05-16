@@ -33,7 +33,7 @@ const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
                             );
                         })}
                 <div className="cartTotal">
-                    <h3>{`Grand Total: $${gTotal}`}</h3>
+                    <h3 className="grandTotal">{`Grand Total: $${gTotal}`}</h3>
                     <button className="checkoutButton" onClick={() => setProceedToCheckout(true)}>Checkout</button>
                 </div>
             </div>
