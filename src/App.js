@@ -16,7 +16,7 @@ import firebase from './Firebase'
 function App() {
   const [cartData, setCartData] = useState([]);
   const [cartLength, setCartLength] = useState(0);
-  const [totalTest, setTotalTest] = useState([])
+  const [total, setTotal] = useState([])
 
   useEffect(() => {
     const database = getDatabase(firebase);
@@ -24,7 +24,6 @@ function App() {
     //Event listener for changes to database. 
     onValue(dbRef, (response) => {
       const data = response.val();
-      //Creating an empty array to item data
       const newState = []
       const total = []
       //Lopping through the data object
@@ -43,9 +42,9 @@ function App() {
 
       if(total.length > 0) {
         const grandTotal = total.reduce((prevAmount, currentAmount) => prevAmount + currentAmount).toFixed(2)
-        setTotalTest(grandTotal)
+        setTotal(grandTotal)
       } else {
-        setTotalTest(0)
+        setTotal(0)
       }
     })
   }, [])
@@ -56,10 +55,8 @@ function App() {
     push(dbRef, itemToAdd);
   };
 
-  //Removes item from cart, itemToRemove represents the individual item in the cart.
   const handleRemoveFromCart = (itemToRemove) => {
     const database = getDatabase(firebase);
-    //Reference to the item to remove
     const dbRef = ref(database, `cart/${itemToRemove}`);
     remove(dbRef)
   };
@@ -70,8 +67,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home className="homeRoute"/>} />
         <Route path="/products" element={<Products />} />
-        <Route path="/product/:productid" element={<Product handleItemData={handleAddToCart} />} />
-        <Route path="/cart" element={<Cart cartData={cartData} removeFromCart={handleRemoveFromCart} gTotal={totalTest} />} />
+        <Route path="/product/:productId" element={<Product handleItemData={handleAddToCart} />} />
+        <Route path="/cart" element={<Cart cartData={cartData} removeFromCart={handleRemoveFromCart} grandTotal={total} />} />
       </Routes>
       <Footer />
     </div>

@@ -29,8 +29,6 @@ const Products = () => {
                                 <img className="productsImage" src={product.image} alt={product.title} />
                                 <h3 className="productsTitle">{product.title}</h3>
                                 <h4 className="productsPrice">Price: ${product.price}</h4>
-                                {/* Links to individual product component, 
-                                product id is passed as a parameter to both url and to another api call there*/}
                                 <Link className="productLink" to={`/product/${product.id}`} productid={`${product.id}`}>
                                     View Product
                                 </Link>

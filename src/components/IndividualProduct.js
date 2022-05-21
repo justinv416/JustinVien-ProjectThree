@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Product = (props) => {
     //Destructures product id from Products.js to be used in api call.
-    const { productid } = useParams();
-    //Sets individual item as state.
+    const { productId } = useParams();
     const [item, setItem] = useState([]);
 
     //Function that stores item data as an object that when clicked will pass it back 
@@ -24,7 +23,7 @@ const Product = (props) => {
 
     useEffect(() => {
         axios({
-            url:`https://fakestoreapi.com/products/${productid}`,
+            url:`https://fakestoreapi.com/products/${productId}`,
             method: 'GET',
             dataResponse: 'json'
         }).then((response) => {
@@ -32,7 +31,7 @@ const Product = (props) => {
         }).catch((err) => {
             alert("Something went wrong, please try again another time. I'll try my best to fix it.");
         });
-    }, [productid]);
+    }, [productId]);
 
     return (
         <section id='individualItem'>

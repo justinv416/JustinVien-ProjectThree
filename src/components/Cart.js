@@ -1,7 +1,7 @@
 import Checkout from "./Checkout";
 import { useState, useEffect } from "react";
 
-const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
+const ShoppingCart = ({cartData, removeFromCart, grandTotal}) => {
     const [proceedToCheckout, setProceedToCheckout] = useState(false)
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
 
     return (
         <>
-            {proceedToCheckout && <Checkout proceedToCheckout={setProceedToCheckout} gTotal={gTotal}/>}
+            {proceedToCheckout && <Checkout proceedToCheckout={setProceedToCheckout} grandTotal={grandTotal}/>}
             <div className="wrapper cartWrapper">
                 {cartData.length === 0 ? 
                     <h2 className="cartHeading">Cart is empty</h2> 
@@ -19,7 +19,7 @@ const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
                     <h2 className="cartHeading">Shopping Cart:</h2>}
                         {cartData.map((item) => {
                             return (
-                                <div className="cartItemContainer" key={item.data.name}>                    
+                                <div className="cartItemContainer" key={item.data.id}>                    
                                     <div className="cartItemImageContainer">
                                         <img className="cartItemImage" src={item.data.image} alt={item.title} />
                                     </div>
@@ -33,7 +33,7 @@ const ShoppingCart = ({cartData, removeFromCart, gTotal}) => {
                             );
                         })}
                 <div className="cartTotal">
-                    <h3 className="grandTotal">{`Grand Total: $${gTotal}`}</h3>
+                    <h3 className="grandTotal">{`Grand Total: $${grandTotal}`}</h3>
                     <button className="checkoutButton" onClick={() => setProceedToCheckout(true)}>Checkout</button>
                 </div>
             </div>

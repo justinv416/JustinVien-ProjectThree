@@ -5,11 +5,11 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Checkout = (props) => {
   const [name, setName] = useState('');
-  const [isSubmit, setIsSubmit] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    setIsSubmit(true)
+    setIsSubmitted(true)
   }
 
   return (
@@ -27,11 +27,11 @@ const Checkout = (props) => {
                 <input className="checkoutInput" type="text" placeholder="Your city here" required />
                 <label htmlFor="postalCode">Your Postal Code:</label>
                 <input className="checkoutInput" type="text" placeholder="Your postal code here" required />
-                <h3 className='grandTotalModal'>{`Grand Total ${props.gTotal}`}</h3>
+                <h3 className='grandTotalModal'>{`Grand Total ${props.grandTotal}`}</h3>
                 <button className="checkoutSubmit" type="submit">Submit Order</button>
             </form>
             <FontAwesomeIcon icon={faTimes} className="closeModal" onClick={() => props.proceedToCheckout(false)}/>
-            {isSubmit && 
+            {isSubmitted && 
             <div className="checkoutConfirmation">
               <p>{`Order is placed thanks, ${name}!`}</p>
             </div>}
